@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Pilihan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body,
+      html {
+        height: 100%;
+        font-family: "Lato", sans-serif;
+      }
+      /* Video background */
+      .video-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* Place behind content */
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Dark overlay for better text visibility */
+        z-index: 0; /* Overlay above video */
+        pointer-events: none;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        z-index: 1; /* Content above overlay */
+      }
+      h1 {
+        color: rgb(255, 255, 255);
+        font-size: 3em;
+        text-align: center;
+        margin-bottom: 30px;
+        animation: pulse 3s ease-in-out infinite; /* Looping animation */
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+        50% {
+          opacity: 0.7;
+          transform: scale(1.1) translateY(-10px); /* Slight zoom and lift */
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 1.2em;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        background: #ff3f3f;
+        background: linear-gradient(to right, #fc25aa, #cb118a);
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .btn:hover {
+        background: linear-gradient(to right, #ff512f, #dd2476);
+        transform: scale(1.1);
+      }
+      .btn:active {
+        transform: scale(1);
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2em;
+        }
+        .btn {
+          font-size: 1em;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Video Background -->
+    <video class="video-bg" autoplay muted loop>
+      <source src="bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay for darkening the video -->
+    <div class="overlay"></div>
+
+    <!-- Content -->
+    <div class="container">
+      <h1>Selamat Datang Cantik!</h1>
+      <a href="ayang.html" class="btn">Ini buat kamu yang kemarin</a>
+      <a href="game.html" class="btn">Game gabut</a>
+    </div>
+  </body>
+</html>

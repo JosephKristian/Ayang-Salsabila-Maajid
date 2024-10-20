@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Salsabila</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            position: relative;
+        }
+        .container {
+            max-width: 600px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin: 40px 0;
+            overflow-y: auto;
+            max-height: 80vh; /* Membatasi tinggi dan mengizinkan scroll */
+            transform: scale(0.9);
+            animation: zoomIn 1s ease forwards;
+        }
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        h1 {
+            color: #ff6f61;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeInDown 1.5s ease;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            animation: fadeInUp 1.8s ease;
+        }
+        .signature {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #888;
+            animation: fadeInUp 2s ease;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+        }
+
+        /* CSS untuk efek love */
+        .love {
+            position: absolute;
+            font-size: 2rem;
+            color: red;
+            animation: popUp 1s ease forwards;
+            pointer-events: none;
+        }
+        @keyframes popUp {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="clickable-area">
+        <h1>Hi Salsabila,</h1>
+        <p>Setiap detik terasa lama tanpa kamu di sini. Aku kangen banget sama kamu, dan semakin hari rasa sayangku bertambah.</p>
+        <p>Aku sangat menghargai setiap momen yang kita habiskan bersama. Kamu adalah alasan aku tersenyum setiap hari.</p>
+        <p>Semoga kita bisa segera bertemu lagi ya. Sampai saat itu tiba, ingatlah bahwa kamu selalu ada di hatiku.</p>
+
+        <!-- Gambar dari tautan -->
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQ1MC32U6dbN2dkcI4TbXLn-85Hf2Fc8KG5yQf-QTjibeBB3d6nNyEJr38_zwHccBm_uCPH-O_3gZh-JLdJrAZsp9-Odn9zCngsE6iI8hWHeHRbQC5NkjA0zZGBTwvzPz_qV3npKIkJm8/s517/064bda33fb133a1c205c6496ab0f6f56.jpg" alt="Special photo for you">
+
+        <p class="signature">Dengan cinta, <br> Joseph</p>
+    </div>
+
+    <script>
+        document.getElementById('clickable-area').addEventListener('click', function(event) {
+            const love = document.createElement('div');
+            love.classList.add('love');
+            love.innerHTML = '❤️';
+            love.style.left = `${event.clientX}px`;
+            love.style.top = `${event.clientY}px`;
+            document.body.appendChild(love);
+
+            setTimeout(() => {
+                love.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
